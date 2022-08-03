@@ -29,31 +29,30 @@ def hello_name_route():
 def signin():
 	error = ""
 	if request.method == 'POST':
-		email = request.form.get("email", False)
-		password = request.form.get("password", False)
+		email1 = request.form.get("emailq1", False)
+		password1= request.form.get("password1", False)
 		try:
-			login_session['user'] = auth.sign_in_with_email_and_password(email, password)
+			login_session['user'] = auth.sign_in_with_email_and_password(email1, password1)
 			return render_template("decisions.html")
 		except:
 			error = "Authentication failed"
 			return render_template("signin.html")
-	else:
-		print("Didn't get to post. got to: {request.method}")
-		return render_template("signin.html")
+
 	return render_template("signin.html")
 
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
 	error = ""
-	if request.method == 'GET':
-		email = request.form.get("email", False)
-		password = request.form.get("password", False)
-		number = request.form.get("number", False)
-		username = request.form.get("username", False)
+	if request.method == 'POST':
+		print("RERFGHJ")
+		email = request.form.get("email",False)
+		password = request.form.get("password",False)
+		username = request.form.get("txt",False)
 		try:
+			print("1234567")
 			login_session['user'] = auth.create_user_with_email_and_password(email, password)
-			user = { "email":email,"password":password, "number": number , "username": username   }
+			user = { "email":email,"password":password, "username": username   }
 			db.child("Users").child(login_session['user']['localId']).set(user)
 
 			return redirect(url_for('decision'))

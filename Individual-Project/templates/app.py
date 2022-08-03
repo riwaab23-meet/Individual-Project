@@ -63,6 +63,8 @@ def signin():
 		except:
 			error = "Authentication failed"
 			return render_template("signup.html")
+	if request.method == 'GET':
+		print("GET!!")
 	else:
 		print("Didn't get to post. got to: {request.method}")
 		return render_template("home.html")
