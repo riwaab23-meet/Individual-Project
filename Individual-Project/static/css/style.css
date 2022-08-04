@@ -48,9 +48,9 @@ input{
   border-radius: 5px;
 }
 button{
-  width: 60%;
-  height: 40px;
-  margin: 10px auto;
+  width: 90%;
+  height: 60px;
+  margin: 20px auto;
   justify-content: center;
   display: block;
   color: #fff;
@@ -60,7 +60,7 @@ button{
   margin-top: 20px;
   outline: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   transition: .2s ease-in;
   cursor: pointer;
 }
